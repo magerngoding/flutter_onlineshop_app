@@ -3,6 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_onlineshop_app/core/constants/colors.dart';
 import 'package:flutter_onlineshop_app/core/router/app_router.dart';
 import 'package:flutter_onlineshop_app/data/datasource/category_remote_datasource.dart';
+import 'package:flutter_onlineshop_app/data/datasource/product_remote_datasource.dart';
+import 'package:flutter_onlineshop_app/presentation/home/bloc/all_product/all_product_bloc.dart';
+import 'package:flutter_onlineshop_app/presentation/home/bloc/best_seller_product/best_seller_product_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'presentation/home/bloc/category/category_bloc.dart';
@@ -18,10 +21,24 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final appRouter = AppRouter();
     final router = appRouter.router;
-    return BlocProvider(
-      create: (context) => CategoryBloc(
-        CategoryRemoteDataSource(),
-      ),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => CategoryBloc(
+            CategoryRemoteDataSource(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => AllProductBloc(
+            ProductRemoteDataSource(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => BestSellerProductBloc(
+            ProductRemoteDataSource(),
+          ),
+        ),
+      ],
       child: MaterialApp.router(
         title: 'Flutter Demo',
         theme: ThemeData(

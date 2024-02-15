@@ -14,7 +14,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     Future.delayed(
-      const Duration(seconds: 3),
+      const Duration(seconds: 1),
       () => context.goNamed(
         RouteConstants.root,
         pathParameters: PathParameters().toMap(),

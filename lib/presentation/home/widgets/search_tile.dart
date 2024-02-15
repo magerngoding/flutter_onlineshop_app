@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
-
 import '../../../core/components/spaces.dart';
 import '../../../core/core.dart';
 import '../models/product_model.dart';
 
 class SearchTile extends StatelessWidget {
-  final ProductModel data;
+  final Product data;
   const SearchTile({super.key, required this.data});
 
   @override
