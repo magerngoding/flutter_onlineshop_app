@@ -5,7 +5,7 @@ import '../../../core/core.dart';
 import '../models/product_model.dart';
 
 class SearchTile extends StatelessWidget {
-  final Product data;
+  final ProductModel data;
   const SearchTile({super.key, required this.data});
 
   @override

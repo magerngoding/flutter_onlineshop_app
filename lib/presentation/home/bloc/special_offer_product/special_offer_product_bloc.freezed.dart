@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'best_seller_product_bloc.dart';
+part of 'special_offer_product_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,60 +15,60 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$BestSellerProductEvent {
+mixin _$SpecialOfferProductEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() getBestSelleProducts,
+    required TResult Function() getSpecialOfferProducts,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? getBestSelleProducts,
+    TResult? Function()? getSpecialOfferProducts,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? getBestSelleProducts,
+    TResult Function()? getSpecialOfferProducts,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_GetBestSellerProducts value)
-        getBestSelleProducts,
+    required TResult Function(_GetSpecialOfferProduct value)
+        getSpecialOfferProducts,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_GetBestSellerProducts value)? getBestSelleProducts,
+    TResult? Function(_GetSpecialOfferProduct value)? getSpecialOfferProducts,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_GetBestSellerProducts value)? getBestSelleProducts,
+    TResult Function(_GetSpecialOfferProduct value)? getSpecialOfferProducts,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $BestSellerProductEventCopyWith<$Res> {
-  factory $BestSellerProductEventCopyWith(BestSellerProductEvent value,
-          $Res Function(BestSellerProductEvent) then) =
-      _$BestSellerProductEventCopyWithImpl<$Res, BestSellerProductEvent>;
+abstract class $SpecialOfferProductEventCopyWith<$Res> {
+  factory $SpecialOfferProductEventCopyWith(SpecialOfferProductEvent value,
+          $Res Function(SpecialOfferProductEvent) then) =
+      _$SpecialOfferProductEventCopyWithImpl<$Res, SpecialOfferProductEvent>;
 }
 
 /// @nodoc
-class _$BestSellerProductEventCopyWithImpl<$Res,
-        $Val extends BestSellerProductEvent>
-    implements $BestSellerProductEventCopyWith<$Res> {
-  _$BestSellerProductEventCopyWithImpl(this._value, this._then);
+class _$SpecialOfferProductEventCopyWithImpl<$Res,
+        $Val extends SpecialOfferProductEvent>
+    implements $SpecialOfferProductEventCopyWith<$Res> {
+  _$SpecialOfferProductEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -85,7 +85,7 @@ abstract class _$$StartedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$StartedImplCopyWithImpl<$Res>
-    extends _$BestSellerProductEventCopyWithImpl<$Res, _$StartedImpl>
+    extends _$SpecialOfferProductEventCopyWithImpl<$Res, _$StartedImpl>
     implements _$$StartedImplCopyWith<$Res> {
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
@@ -99,7 +99,7 @@ class _$StartedImpl implements _Started {
 
   @override
   String toString() {
-    return 'BestSellerProductEvent.started()';
+    return 'SpecialOfferProductEvent.started()';
   }
 
   @override
@@ -115,7 +115,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() getBestSelleProducts,
+    required TResult Function() getSpecialOfferProducts,
   }) {
     return started();
   }
@@ -124,7 +124,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? getBestSelleProducts,
+    TResult? Function()? getSpecialOfferProducts,
   }) {
     return started?.call();
   }
@@ -133,7 +133,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? getBestSelleProducts,
+    TResult Function()? getSpecialOfferProducts,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -146,8 +146,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_GetBestSellerProducts value)
-        getBestSelleProducts,
+    required TResult Function(_GetSpecialOfferProduct value)
+        getSpecialOfferProducts,
   }) {
     return started(this);
   }
@@ -156,7 +156,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_GetBestSellerProducts value)? getBestSelleProducts,
+    TResult? Function(_GetSpecialOfferProduct value)? getSpecialOfferProducts,
   }) {
     return started?.call(this);
   }
@@ -165,7 +165,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_GetBestSellerProducts value)? getBestSelleProducts,
+    TResult Function(_GetSpecialOfferProduct value)? getSpecialOfferProducts,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -175,43 +175,44 @@ class _$StartedImpl implements _Started {
   }
 }
 
-abstract class _Started implements BestSellerProductEvent {
+abstract class _Started implements SpecialOfferProductEvent {
   const factory _Started() = _$StartedImpl;
 }
 
 /// @nodoc
-abstract class _$$GetBestSellerProductsImplCopyWith<$Res> {
-  factory _$$GetBestSellerProductsImplCopyWith(
-          _$GetBestSellerProductsImpl value,
-          $Res Function(_$GetBestSellerProductsImpl) then) =
-      __$$GetBestSellerProductsImplCopyWithImpl<$Res>;
+abstract class _$$GetSpecialOfferProductImplCopyWith<$Res> {
+  factory _$$GetSpecialOfferProductImplCopyWith(
+          _$GetSpecialOfferProductImpl value,
+          $Res Function(_$GetSpecialOfferProductImpl) then) =
+      __$$GetSpecialOfferProductImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$GetBestSellerProductsImplCopyWithImpl<$Res>
-    extends _$BestSellerProductEventCopyWithImpl<$Res,
-        _$GetBestSellerProductsImpl>
-    implements _$$GetBestSellerProductsImplCopyWith<$Res> {
-  __$$GetBestSellerProductsImplCopyWithImpl(_$GetBestSellerProductsImpl _value,
-      $Res Function(_$GetBestSellerProductsImpl) _then)
+class __$$GetSpecialOfferProductImplCopyWithImpl<$Res>
+    extends _$SpecialOfferProductEventCopyWithImpl<$Res,
+        _$GetSpecialOfferProductImpl>
+    implements _$$GetSpecialOfferProductImplCopyWith<$Res> {
+  __$$GetSpecialOfferProductImplCopyWithImpl(
+      _$GetSpecialOfferProductImpl _value,
+      $Res Function(_$GetSpecialOfferProductImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$GetBestSellerProductsImpl implements _GetBestSellerProducts {
-  const _$GetBestSellerProductsImpl();
+class _$GetSpecialOfferProductImpl implements _GetSpecialOfferProduct {
+  const _$GetSpecialOfferProductImpl();
 
   @override
   String toString() {
-    return 'BestSellerProductEvent.getBestSelleProducts()';
+    return 'SpecialOfferProductEvent.getSpecialOfferProducts()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetBestSellerProductsImpl);
+            other is _$GetSpecialOfferProductImpl);
   }
 
   @override
@@ -221,29 +222,29 @@ class _$GetBestSellerProductsImpl implements _GetBestSellerProducts {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() getBestSelleProducts,
+    required TResult Function() getSpecialOfferProducts,
   }) {
-    return getBestSelleProducts();
+    return getSpecialOfferProducts();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? getBestSelleProducts,
+    TResult? Function()? getSpecialOfferProducts,
   }) {
-    return getBestSelleProducts?.call();
+    return getSpecialOfferProducts?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? getBestSelleProducts,
+    TResult Function()? getSpecialOfferProducts,
     required TResult orElse(),
   }) {
-    if (getBestSelleProducts != null) {
-      return getBestSelleProducts();
+    if (getSpecialOfferProducts != null) {
+      return getSpecialOfferProducts();
     }
     return orElse();
   }
@@ -252,41 +253,41 @@ class _$GetBestSellerProductsImpl implements _GetBestSellerProducts {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_GetBestSellerProducts value)
-        getBestSelleProducts,
+    required TResult Function(_GetSpecialOfferProduct value)
+        getSpecialOfferProducts,
   }) {
-    return getBestSelleProducts(this);
+    return getSpecialOfferProducts(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_GetBestSellerProducts value)? getBestSelleProducts,
+    TResult? Function(_GetSpecialOfferProduct value)? getSpecialOfferProducts,
   }) {
-    return getBestSelleProducts?.call(this);
+    return getSpecialOfferProducts?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_GetBestSellerProducts value)? getBestSelleProducts,
+    TResult Function(_GetSpecialOfferProduct value)? getSpecialOfferProducts,
     required TResult orElse(),
   }) {
-    if (getBestSelleProducts != null) {
-      return getBestSelleProducts(this);
+    if (getSpecialOfferProducts != null) {
+      return getSpecialOfferProducts(this);
     }
     return orElse();
   }
 }
 
-abstract class _GetBestSellerProducts implements BestSellerProductEvent {
-  const factory _GetBestSellerProducts() = _$GetBestSellerProductsImpl;
+abstract class _GetSpecialOfferProduct implements SpecialOfferProductEvent {
+  const factory _GetSpecialOfferProduct() = _$GetSpecialOfferProductImpl;
 }
 
 /// @nodoc
-mixin _$BestSellerProductState {
+mixin _$SpecialOfferProductState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -340,17 +341,17 @@ mixin _$BestSellerProductState {
 }
 
 /// @nodoc
-abstract class $BestSellerProductStateCopyWith<$Res> {
-  factory $BestSellerProductStateCopyWith(BestSellerProductState value,
-          $Res Function(BestSellerProductState) then) =
-      _$BestSellerProductStateCopyWithImpl<$Res, BestSellerProductState>;
+abstract class $SpecialOfferProductStateCopyWith<$Res> {
+  factory $SpecialOfferProductStateCopyWith(SpecialOfferProductState value,
+          $Res Function(SpecialOfferProductState) then) =
+      _$SpecialOfferProductStateCopyWithImpl<$Res, SpecialOfferProductState>;
 }
 
 /// @nodoc
-class _$BestSellerProductStateCopyWithImpl<$Res,
-        $Val extends BestSellerProductState>
-    implements $BestSellerProductStateCopyWith<$Res> {
-  _$BestSellerProductStateCopyWithImpl(this._value, this._then);
+class _$SpecialOfferProductStateCopyWithImpl<$Res,
+        $Val extends SpecialOfferProductState>
+    implements $SpecialOfferProductStateCopyWith<$Res> {
+  _$SpecialOfferProductStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -367,7 +368,7 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$BestSellerProductStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$SpecialOfferProductStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
@@ -381,7 +382,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'BestSellerProductState.initial()';
+    return 'SpecialOfferProductState.initial()';
   }
 
   @override
@@ -468,7 +469,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements BestSellerProductState {
+abstract class _Initial implements SpecialOfferProductState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -481,7 +482,7 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$BestSellerProductStateCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$SpecialOfferProductStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
@@ -495,7 +496,7 @@ class _$LoadingImpl implements _Loading {
 
   @override
   String toString() {
-    return 'BestSellerProductState.loading()';
+    return 'SpecialOfferProductState.loading()';
   }
 
   @override
@@ -582,7 +583,7 @@ class _$LoadingImpl implements _Loading {
   }
 }
 
-abstract class _Loading implements BestSellerProductState {
+abstract class _Loading implements SpecialOfferProductState {
   const factory _Loading() = _$LoadingImpl;
 }
 
@@ -597,7 +598,7 @@ abstract class _$$LoadedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadedImplCopyWithImpl<$Res>
-    extends _$BestSellerProductStateCopyWithImpl<$Res, _$LoadedImpl>
+    extends _$SpecialOfferProductStateCopyWithImpl<$Res, _$LoadedImpl>
     implements _$$LoadedImplCopyWith<$Res> {
   __$$LoadedImplCopyWithImpl(
       _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
@@ -632,7 +633,7 @@ class _$LoadedImpl implements _Loaded {
 
   @override
   String toString() {
-    return 'BestSellerProductState.loaded(products: $products)';
+    return 'SpecialOfferProductState.loaded(products: $products)';
   }
 
   @override
@@ -728,7 +729,7 @@ class _$LoadedImpl implements _Loaded {
   }
 }
 
-abstract class _Loaded implements BestSellerProductState {
+abstract class _Loaded implements SpecialOfferProductState {
   const factory _Loaded(final List<Product> products) = _$LoadedImpl;
 
   List<Product> get products;
@@ -748,7 +749,7 @@ abstract class _$$ErorrImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$ErorrImplCopyWithImpl<$Res>
-    extends _$BestSellerProductStateCopyWithImpl<$Res, _$ErorrImpl>
+    extends _$SpecialOfferProductStateCopyWithImpl<$Res, _$ErorrImpl>
     implements _$$ErorrImplCopyWith<$Res> {
   __$$ErorrImplCopyWithImpl(
       _$ErorrImpl _value, $Res Function(_$ErorrImpl) _then)
@@ -778,7 +779,7 @@ class _$ErorrImpl implements _Erorr {
 
   @override
   String toString() {
-    return 'BestSellerProductState.erorr(message: $message)';
+    return 'SpecialOfferProductState.erorr(message: $message)';
   }
 
   @override
@@ -873,7 +874,7 @@ class _$ErorrImpl implements _Erorr {
   }
 }
 
-abstract class _Erorr implements BestSellerProductState {
+abstract class _Erorr implements SpecialOfferProductState {
   const factory _Erorr(final String message) = _$ErorrImpl;
 
   String get message;

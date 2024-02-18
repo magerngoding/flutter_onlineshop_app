@@ -1,7 +1,7 @@
 import '../../../core/extensions/int_ext.dart';
 import 'store_model.dart';
 
-class Product {
+class ProductModel {
   final List<String> images;
   final String name;
   final int price;
@@ -9,7 +9,7 @@ class Product {
   final String description;
   final StoreModel store;
 
-  Product({
+  ProductModel({
     required this.images,
     required this.name,
     required this.price,

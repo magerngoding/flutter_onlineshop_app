@@ -4,18 +4,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_onlineshop_app/presentation/home/bloc/all_product/all_product_bloc.dart';
 import 'package:flutter_onlineshop_app/presentation/home/bloc/best_seller_product/best_seller_product_bloc.dart';
+import 'package:flutter_onlineshop_app/presentation/home/bloc/checkout/checkout_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/assets/assets.gen.dart';
 import '../../../core/components/search_input.dart';
 import '../../../core/components/spaces.dart';
 import '../../../core/router/app_router.dart';
+import '../bloc/special_offer_product/special_offer_product_bloc.dart';
 import '../models/product_model.dart';
 import '../models/store_model.dart';
 import '../widgets/banner_slider.dart';
 import '../widgets/organism/menu_categories.dart';
 import '../widgets/organism/product_list.dart';
 import '../widgets/title_content.dart';
+import 'package:badges/badges.dart' as badges;
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -46,6 +49,9 @@ class _HomePageState extends State<HomePage> {
     context
         .read<BestSellerProductBloc>()
         .add(BestSellerProductEvent.getBestSelleProducts());
+    context
+        .read<SpecialOfferProductBloc>()
+        .add(SpecialOfferProductEvent.getSpecialOfferProducts());
     super.initState();
   }
 
@@ -61,18 +67,48 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('MSH Store'),
         actions: [
+          BlocBuilder<CheckoutBloc, CheckoutState>(
+            builder: (context, state) {
+              return state.maybeWhen(
+                loaded: (checkout) {
+                  final totalQuantity = checkout.fold<int>(
+                    0,
+                    (previousValue, element) =>
+                        previousValue + element.quantity,
+                  );
+                  return totalQuantity > 0 // ketika jumlah 0 tidak muncul
+                      ? badges.Badge(
+                          badgeContent: Text(
+                            totalQuantity.toString(),
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                          child: IconButton(
+                            onPressed: () {
+                              context.goNamed(
+                                RouteConstants.cart,
+                                pathParameters: PathParameters().toMap(),
+                              );
+                            },
+                            icon: Assets.icons.cart.svg(height: 24.0),
+                          ),
+                        )
+                      : IconButton(
+                          onPressed: () {
+                            context.goNamed(RouteConstants.cart,
+                                pathParameters: PathParameters().toMap());
+                          },
+                          icon: Assets.icons.cart.svg(height: 24),
+                        );
+                },
+                orElse: () => SizedBox.shrink(),
+              );
+            },
+          ),
           IconButton(
             onPressed: () {},
             icon: Assets.icons.notification.svg(height: 24.0),
-          ),
-          IconButton(
-            onPressed: () {
-              context.goNamed(
-                RouteConstants.cart,
-                pathParameters: PathParameters().toMap(),
-              );
-            },
-            icon: Assets.icons.cart.svg(height: 24.0),
           ),
         ],
       ),
@@ -124,6 +160,7 @@ class _HomePageState extends State<HomePage> {
           const SpaceHeight(50.0),
           BannerSlider(items: banners2),
           const SpaceHeight(28.0),
+
           BlocBuilder<BestSellerProductBloc, BestSellerProductState>(
             builder: (context, state) {
               return state.maybeWhen(
@@ -145,7 +182,7 @@ class _HomePageState extends State<HomePage> {
               );
             },
           ),
-          const SpaceHeight(50.0),
+          //   const SpaceHeight(50.0),
           // ProductList(
           //   title: 'New Arrivals',
           //   onSeeAllTap: () {},
@@ -158,11 +195,27 @@ class _HomePageState extends State<HomePage> {
           //   items: topRatedProducts,
           // ),
           const SpaceHeight(50.0),
-          // ProductList(
-          //   title: 'Special Offers',
-          //   onSeeAllTap: () {},
-          //     items: specialOffers,
-          //  ),
+          BlocBuilder<SpecialOfferProductBloc, SpecialOfferProductState>(
+            builder: (context, state) {
+              return state.maybeWhen(
+                loaded: (products) {
+                  return ProductList(
+                    title: 'Special Offers',
+                    onSeeAllTap: () {},
+                    items:
+                        products.length > 2 ? products.sublist(0, 2) : products,
+                  );
+                },
+                orElse: () => SizedBox.shrink(),
+                loading: () => Center(
+                  child: CircularProgressIndicator(),
+                ),
+                erorr: (message) => Center(
+                  child: Text(message),
+                ),
+              );
+            },
+          ),
         ],
       ),
     );
