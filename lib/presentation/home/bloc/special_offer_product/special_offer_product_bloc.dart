@@ -5,8 +5,6 @@ import 'package:flutter_onlineshop_app/data/datasource/product_remote_datasource
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../data/models/responses/product_response_model.dart';
-import '../../models/product_model.dart';
-
 part 'special_offer_product_event.dart';
 part 'special_offer_product_state.dart';
 part 'special_offer_product_bloc.freezed.dart';
