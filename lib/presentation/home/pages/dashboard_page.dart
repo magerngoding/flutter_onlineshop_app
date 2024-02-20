@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_onlineshop_app/core/assets/assets.gen.dart';
 import 'package:flutter_onlineshop_app/core/constants/colors.dart';
+import 'package:flutter_onlineshop_app/presentation/home/pages/logout_page.dart';
 
 import '../../orders/pages/cart_page.dart';
 import 'home_page.dart';
@@ -27,9 +28,7 @@ class _DashboardPageState extends State<DashboardPage> {
     const Center(
       child: Text('This Page 3'),
     ),
-    const Center(
-      child: Text('This Page 4 '),
-    ),
+    LogoutPage(),
   ];
 
   void _onItemTapped(int index) {

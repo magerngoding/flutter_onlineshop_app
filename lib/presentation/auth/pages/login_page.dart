@@ -1,13 +1,15 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_onlineshop_app/data/datasource/auth_local_datasource.dart';
+import 'package:flutter_onlineshop_app/presentation/auth/bloc/login/login_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/components/buttons.dart';
 import '../../../core/components/spaces.dart';
 import '../../../core/core.dart';
 import '../../../core/router/app_router.dart';
-import '../widgets/select_type_login.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -17,8 +19,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  TypeLoginIs typeLogin = TypeLoginIs.phoneNumber;
-  final phoneController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
@@ -29,7 +29,6 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void dispose() {
-    phoneController.dispose();
     emailController.dispose();
     passwordController.dispose();
     super.dispose();
@@ -99,14 +98,48 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 const SpaceHeight(50.0),
-                Button.filled(
-                  onPressed: () {
-                    context.goNamed(
-                      RouteConstants.root,
-                      pathParameters: PathParameters().toMap(),
+                BlocConsumer<LoginBloc, LoginState>(
+                  listener: (context, state) {
+                    state.maybeWhen(
+                      orElse: () {},
+                      loaded: (data) {
+                        AuthLocalDatasource()
+                            .saveAuthData(data); // simpan data dilocal
+                        context.goNamed(RouteConstants.root,
+                            pathParameters: PathParameters().toMap());
+                      },
+                      erorr: (message) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            backgroundColor: AppColors.red,
+                            content: Text(message),
+                          ),
+                        );
+                      },
                     );
                   },
-                  label: 'Login',
+                  builder: (context, state) {
+                    return state.maybeWhen(
+                      orElse: () {
+                        return Button.filled(
+                          onPressed: () {
+                            context.read<LoginBloc>().add(
+                                  LoginEvent.login(
+                                      email: emailController.text,
+                                      password: passwordController.text),
+                                );
+                            ;
+                          },
+                          label: 'Login',
+                        );
+                      },
+                      loading: () {
+                        return Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      },
+                    );
+                  },
                 ),
                 const SpaceHeight(50.0),
                 InkWell(

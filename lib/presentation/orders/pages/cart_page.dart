@@ -156,13 +156,15 @@ class CartPage extends StatelessWidget {
                   final isAuth = await AuthLocalDatasource().isAuth();
                   if (!isAuth) {
                     // false
-                    context.goNamed(
+                    context.pushNamed(
                       RouteConstants.login,
                     );
                   } else {
                     // sudah login
                     context.goNamed(
                       RouteConstants.orderDetail,
+                      pathParameters:
+                          PathParameters(rootTab: RootTab.order).toMap(),
                     );
                   }
                 },

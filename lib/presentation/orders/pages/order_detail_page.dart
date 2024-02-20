@@ -11,7 +11,15 @@ class _OrderDetailPageState extends State<OrderDetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(),
+      body: Center(
+        child: Text(
+          "Order Detail",
+          style: TextStyle(
+            fontSize: 12.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
     );
   }
 }
