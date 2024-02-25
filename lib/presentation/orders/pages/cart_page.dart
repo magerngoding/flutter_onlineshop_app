@@ -10,9 +10,6 @@ import '../../../core/components/spaces.dart';
 import '../../../core/core.dart';
 import '../../../core/router/app_router.dart';
 import '../../home/bloc/checkout/checkout_bloc.dart';
-import '../../home/models/product_model.dart';
-import '../../home/models/store_model.dart';
-import '../models/cart_model.dart';
 import '../widgets/cart_tile.dart';
 
 import 'package:badges/badges.dart' as badges;
@@ -162,7 +159,7 @@ class CartPage extends StatelessWidget {
                   } else {
                     // sudah login
                     context.goNamed(
-                      RouteConstants.orderDetail,
+                      RouteConstants.address,
                       pathParameters:
                           PathParameters(rootTab: RootTab.order).toMap(),
                     );

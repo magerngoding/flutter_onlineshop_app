@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_onlineshop_app/core/constants/variables.dart';
 import 'package:flutter_onlineshop_app/data/models/responses/caregory_respose_model.dart';
 import 'package:http/http.dart' as http;

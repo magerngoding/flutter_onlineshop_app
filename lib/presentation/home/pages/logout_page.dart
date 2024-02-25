@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_onlineshop_app/core/router/app_router.dart';
@@ -27,10 +29,14 @@ class _LogoutPageState extends State<LogoutPage> {
                 );
               },
               erorr: (message) {
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  content: Text(message),
-                  backgroundColor: Colors.red,
-                ));
+                context.goNamed(
+                  RouteConstants.login,
+                  // pathParameters: PathParameters().toMap(),
+                );
+                // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                //   content: Text(message),
+                //   backgroundColor: Colors.red,
+                // ));
               },
             );
           },
