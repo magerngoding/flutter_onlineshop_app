@@ -6,7 +6,7 @@ import '../../../core/components/buttons.dart';
 import '../../../core/components/spaces.dart';
 import '../../../core/core.dart';
 import '../../../core/router/app_router.dart';
-import '../address/bloc/address_bloc.dart';
+import '../bloc/address/address_bloc.dart';
 import '../widgets/address_tile.dart';
 
 class AddressPage extends StatefulWidget {

@@ -6,15 +6,12 @@ import '../../../core/components/custom_dropdown.dart';
 import '../../../core/components/custom_text_field.dart';
 import '../../../core/components/spaces.dart';
 
-
-
 class AddAddressPage extends StatelessWidget {
   const AddAddressPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final country = ['Indonesia', 'Inggris', 'Spanyol'];
-    final countryNotifier = ValueNotifier(country.first);
+    //   final countryNotifier = ValueNotifier(country.first);
     final firstNameController = TextEditingController();
     final lastNameController = TextEditingController();
     final addressController = TextEditingController();
@@ -30,29 +27,15 @@ class AddAddressPage extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(20.0),
         children: [
-          ValueListenableBuilder(
-            valueListenable: countryNotifier,
-            builder: (context, value, _) => CustomDropdown(
-              value: value,
-              items: country,
-              label: 'Negara atau wilayah',
-              onChanged: (value) => countryNotifier.value = value ?? '',
-            ),
-          ),
           const SpaceHeight(24.0),
           CustomTextField(
             controller: firstNameController,
-            label: 'Nama Depan',
-          ),
-          const SpaceHeight(24.0),
-          CustomTextField(
-            controller: lastNameController,
-            label: 'Nama Belakang',
+            label: 'Nama',
           ),
           const SpaceHeight(24.0),
           CustomTextField(
             controller: addressController,
-            label: 'Alamat jalan',
+            label: 'Alamat lengkap',
           ),
           const SpaceHeight(24.0),
           CustomTextField(

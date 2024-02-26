@@ -285,7 +285,7 @@ mixin _$AddressState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) erorr,
-    required TResult Function(List<Address> address) loaded,
+    required TResult Function(List<Address> addresses) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -293,7 +293,7 @@ mixin _$AddressState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? erorr,
-    TResult? Function(List<Address> address)? loaded,
+    TResult? Function(List<Address> addresses)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -301,7 +301,7 @@ mixin _$AddressState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? erorr,
-    TResult Function(List<Address> address)? loaded,
+    TResult Function(List<Address> addresses)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -391,7 +391,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) erorr,
-    required TResult Function(List<Address> address) loaded,
+    required TResult Function(List<Address> addresses) loaded,
   }) {
     return initial();
   }
@@ -402,7 +402,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? erorr,
-    TResult? Function(List<Address> address)? loaded,
+    TResult? Function(List<Address> addresses)? loaded,
   }) {
     return initial?.call();
   }
@@ -413,7 +413,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? erorr,
-    TResult Function(List<Address> address)? loaded,
+    TResult Function(List<Address> addresses)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -505,7 +505,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) erorr,
-    required TResult Function(List<Address> address) loaded,
+    required TResult Function(List<Address> addresses) loaded,
   }) {
     return loading();
   }
@@ -516,7 +516,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? erorr,
-    TResult? Function(List<Address> address)? loaded,
+    TResult? Function(List<Address> addresses)? loaded,
   }) {
     return loading?.call();
   }
@@ -527,7 +527,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? erorr,
-    TResult Function(List<Address> address)? loaded,
+    TResult Function(List<Address> addresses)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -645,7 +645,7 @@ class _$ErorrImpl implements _Erorr {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) erorr,
-    required TResult Function(List<Address> address) loaded,
+    required TResult Function(List<Address> addresses) loaded,
   }) {
     return erorr(message);
   }
@@ -656,7 +656,7 @@ class _$ErorrImpl implements _Erorr {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? erorr,
-    TResult? Function(List<Address> address)? loaded,
+    TResult? Function(List<Address> addresses)? loaded,
   }) {
     return erorr?.call(message);
   }
@@ -667,7 +667,7 @@ class _$ErorrImpl implements _Erorr {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? erorr,
-    TResult Function(List<Address> address)? loaded,
+    TResult Function(List<Address> addresses)? loaded,
     required TResult orElse(),
   }) {
     if (erorr != null) {
@@ -729,7 +729,7 @@ abstract class _$$LoadedImplCopyWith<$Res> {
           _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
       __$$LoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Address> address});
+  $Res call({List<Address> addresses});
 }
 
 /// @nodoc
@@ -743,12 +743,12 @@ class __$$LoadedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? address = null,
+    Object? addresses = null,
   }) {
     return _then(_$LoadedImpl(
-      null == address
-          ? _value._address
-          : address // ignore: cast_nullable_to_non_nullable
+      null == addresses
+          ? _value._addresses
+          : addresses // ignore: cast_nullable_to_non_nullable
               as List<Address>,
     ));
   }
@@ -757,19 +757,19 @@ class __$$LoadedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoadedImpl implements _Loaded {
-  const _$LoadedImpl(final List<Address> address) : _address = address;
+  const _$LoadedImpl(final List<Address> addresses) : _addresses = addresses;
 
-  final List<Address> _address;
+  final List<Address> _addresses;
   @override
-  List<Address> get address {
-    if (_address is EqualUnmodifiableListView) return _address;
+  List<Address> get addresses {
+    if (_addresses is EqualUnmodifiableListView) return _addresses;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_address);
+    return EqualUnmodifiableListView(_addresses);
   }
 
   @override
   String toString() {
-    return 'AddressState.loaded(address: $address)';
+    return 'AddressState.loaded(addresses: $addresses)';
   }
 
   @override
@@ -777,12 +777,13 @@ class _$LoadedImpl implements _Loaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoadedImpl &&
-            const DeepCollectionEquality().equals(other._address, _address));
+            const DeepCollectionEquality()
+                .equals(other._addresses, _addresses));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_address));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_addresses));
 
   @JsonKey(ignore: true)
   @override
@@ -796,9 +797,9 @@ class _$LoadedImpl implements _Loaded {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) erorr,
-    required TResult Function(List<Address> address) loaded,
+    required TResult Function(List<Address> addresses) loaded,
   }) {
-    return loaded(address);
+    return loaded(addresses);
   }
 
   @override
@@ -807,9 +808,9 @@ class _$LoadedImpl implements _Loaded {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? erorr,
-    TResult? Function(List<Address> address)? loaded,
+    TResult? Function(List<Address> addresses)? loaded,
   }) {
-    return loaded?.call(address);
+    return loaded?.call(addresses);
   }
 
   @override
@@ -818,11 +819,11 @@ class _$LoadedImpl implements _Loaded {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? erorr,
-    TResult Function(List<Address> address)? loaded,
+    TResult Function(List<Address> addresses)? loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(address);
+      return loaded(addresses);
     }
     return orElse();
   }
@@ -866,9 +867,9 @@ class _$LoadedImpl implements _Loaded {
 }
 
 abstract class _Loaded implements AddressState {
-  const factory _Loaded(final List<Address> address) = _$LoadedImpl;
+  const factory _Loaded(final List<Address> addresses) = _$LoadedImpl;
 
-  List<Address> get address;
+  List<Address> get addresses;
   @JsonKey(ignore: true)
   _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;
