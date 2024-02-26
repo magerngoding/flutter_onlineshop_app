@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
 class ProvinceResponseModel {
@@ -82,6 +83,9 @@ class Province {
         "province_id": provinceId,
         "province": province,
       };
+
+  @override
+  String toString() => '$province';
 }
 
 class Status {

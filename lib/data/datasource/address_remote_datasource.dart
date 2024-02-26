@@ -36,6 +36,7 @@ class AddressRemoteDataSource {
         headers: {
           'Authorization': 'Bearer ${authData!.accessToken}',
           'Accept': 'application/json',
+          'Content-type': 'application/json',
         },
         body: data.toJson(),
       );

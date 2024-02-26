@@ -121,6 +121,9 @@ class Subdistrict {
         "type": type,
         "subdistrict_name": subdistrictName,
       };
+
+  @override
+  String toString() => '$subdistrictName';
 }
 
 class Status {

@@ -115,6 +115,9 @@ class City {
         "city_name": cityName,
         "postal_code": postalCode,
       };
+
+  @override
+  String toString() => '$cityName';
 }
 
 class Status {
