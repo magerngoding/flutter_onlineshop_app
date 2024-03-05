@@ -5,6 +5,7 @@ import 'package:flutter_onlineshop_app/core/router/app_router.dart';
 import 'package:flutter_onlineshop_app/data/datasource/address_remote_datasource.dart';
 import 'package:flutter_onlineshop_app/data/datasource/auth_remote_datasource.dart';
 import 'package:flutter_onlineshop_app/data/datasource/category_remote_datasource.dart';
+import 'package:flutter_onlineshop_app/data/datasource/order_remote_datasource.dart';
 import 'package:flutter_onlineshop_app/data/datasource/product_remote_datasource.dart';
 import 'package:flutter_onlineshop_app/data/datasource/rajaongkir_remote_datasource.dart';
 import 'package:flutter_onlineshop_app/presentation/address/bloc/city/city_bloc.dart';
@@ -16,6 +17,8 @@ import 'package:flutter_onlineshop_app/presentation/home/bloc/all_product/all_pr
 import 'package:flutter_onlineshop_app/presentation/home/bloc/best_seller_product/best_seller_product_bloc.dart';
 import 'package:flutter_onlineshop_app/presentation/home/bloc/checkout/checkout_bloc.dart';
 import 'package:flutter_onlineshop_app/presentation/home/bloc/special_offer_product/special_offer_product_bloc.dart';
+import 'package:flutter_onlineshop_app/presentation/orders/bloc/cost/cost_bloc.dart';
+import 'package:flutter_onlineshop_app/presentation/orders/bloc/order/order_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'presentation/address/bloc/add_address/add_address_bloc.dart';
@@ -91,6 +94,16 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => SubdistrictBloc(
             RajaOngkirRemoteDatasource(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => CostBloc(
+            RajaOngkirRemoteDatasource(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => OrderBloc(
+            OrderRemoteDatasource(),
           ),
         ),
       ],

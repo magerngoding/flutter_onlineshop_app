@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_onlineshop_app/data/models/responses/city_response_model.dart';
+import 'package:flutter_onlineshop_app/data/models/responses/cost_response_model.dart';
 import 'package:flutter_onlineshop_app/data/models/responses/province_response_model.dart';
 import 'package:flutter_onlineshop_app/data/models/responses/subdistrict_response_model.dart';
 import 'package:http/http.dart' as http;
@@ -54,6 +55,33 @@ class RajaOngkirRemoteDatasource {
     );
     if (response.statusCode == 200) {
       return right(SubdistrictResponseModel.fromJson(response.body));
+    } else {
+      return left('Erorr');
+    }
+  }
+
+  // COST biaya pengiriman
+  // String sebelah kiri untuk kembalian gagal & kanan untuk berhasil
+  Future<Either<String, CostResponseModel>> getCost(
+      String origin, String destination, String courier) async {
+    final url = Uri.parse('https://pro.rajaongkir.com/api/cost');
+    final response = await http.post(
+      url,
+      headers: {
+        'key': Variables.rajaOngkirKey,
+      },
+      body: {
+        'origin': origin,
+        'originType': 'subdistrict',
+        'destination': destination,
+        'destinationType': 'subdistrict',
+        'weight': '1000',
+        'courier': courier,
+      },
+    );
+
+    if (response.statusCode == 200) {
+      return right(CostResponseModel.fromJson(response.body));
     } else {
       return left('Erorr');
     }
