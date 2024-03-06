@@ -386,34 +386,51 @@ class PaymentDetailPage extends StatelessWidget {
                   state.maybeWhen(
                     orElse: () {},
                     loaded: (orderResponseModel) {
-                      context.pushNamed(RouteConstants.paymentWaiting,
-                          pathParameters: PathParameters().toMap());
+                      context.pushNamed(
+                        RouteConstants.paymentWaiting,
+                        pathParameters: PathParameters().toMap(),
+                        extra: orderResponseModel.order!.id,
+                      );
                     },
                     error: (message) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
-                            backgroundColor: AppColors.red,
-                            content: Text(message)),
+                          backgroundColor: AppColors.red,
+                          content: Text(message),
+                        ),
                       );
                     },
                   );
                 },
-                child: Button.filled(
-                    disabled: paymentMethod == '',
-                    onPressed: () {
-                      context.read<OrderBloc>().add(OrderEvent.doOrder(
-                          addressId: addressId,
-                          paymentMethod: paymentMethod,
-                          shippingService: shippingService,
-                          shippingCost: shippingCost,
-                          paymentVaName: paymentVaName,
-                          products: products as List<ProductQuantity>));
-                      context.pushNamed(
-                        RouteConstants.paymentWaiting,
-                        pathParameters: PathParameters().toMap(),
-                      );
-                    },
-                    label: 'Bayar Sekarang'),
+                child: BlocBuilder<OrderBloc, OrderState>(
+                  builder: (context, state) {
+                    return state.maybeWhen(
+                      orElse: () {
+                        return Button.filled(
+                            disabled: paymentMethod == '',
+                            onPressed: () {
+                              context.read<OrderBloc>().add(OrderEvent.doOrder(
+                                  addressId: addressId,
+                                  paymentMethod: paymentMethod,
+                                  shippingService: shippingService,
+                                  shippingCost: shippingCost,
+                                  paymentVaName: paymentVaName,
+                                  products: products as List<ProductQuantity>));
+                              context.pushNamed(
+                                RouteConstants.paymentWaiting,
+                                pathParameters: PathParameters().toMap(),
+                              );
+                            },
+                            label: 'Bayar Sekarang');
+                      },
+                      loading: () {
+                        return Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      },
+                    );
+                  },
+                ),
               );
             },
           ),

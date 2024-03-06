@@ -19,13 +19,25 @@ import 'package:flutter_onlineshop_app/presentation/home/bloc/checkout/checkout_
 import 'package:flutter_onlineshop_app/presentation/home/bloc/special_offer_product/special_offer_product_bloc.dart';
 import 'package:flutter_onlineshop_app/presentation/orders/bloc/cost/cost_bloc.dart';
 import 'package:flutter_onlineshop_app/presentation/orders/bloc/order/order_bloc.dart';
+import 'package:flutter_onlineshop_app/presentation/orders/bloc/status_order/status_order_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'data/datasource/firebase_messaging_remote_datasource.dart';
 import 'presentation/address/bloc/add_address/add_address_bloc.dart';
 import 'presentation/address/bloc/address/address_bloc.dart';
 import 'presentation/home/bloc/category/category_bloc.dart';
 
-void main() {
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  //panggil
+  await FirebaseMessagingRemoteDatasource().initialize();
   runApp(const MyApp());
 }
 
@@ -103,6 +115,11 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => OrderBloc(
+            OrderRemoteDatasource(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => StatusOrderBloc(
             OrderRemoteDatasource(),
           ),
         ),
