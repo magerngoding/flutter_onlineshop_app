@@ -23,11 +23,33 @@ class AuthRemoteDatasource {
   Future<Either<String, String>> logout() async {
     final authData = await AuthLocalDatasource().getAuthData();
     final response = await http.post(
-        Uri.parse('${Variables.baseUrl}/api/logout'),
-        headers: {'Authorization': 'Bearer ${authData?.accessToken}'});
+      Uri.parse('${Variables.baseUrl}/api/logout'),
+      headers: {
+        'Authorization': 'Bearer ${authData?.accessToken}',
+      },
+    );
 
     if (response.statusCode == 200) {
       AuthLocalDatasource().removeAuthData();
+      return Right(response.body);
+    } else {
+      return Left(response.body);
+    }
+  }
+
+  // update FCM token
+  Future<Either<String, String>> updateFcmToken(String fcmToken) async {
+    final authData = await AuthLocalDatasource().getAuthData();
+    final response = await http.post(
+      Uri.parse('${Variables.baseUrl}/api/update-fcm'),
+      headers: {
+        'Authorization': 'Bearer ${authData?.accessToken}',
+        'Accept': 'application/json',
+      },
+      body: {'fcm_id': fcmToken},
+    );
+
+    if (response.statusCode == 200) {
       return Right(response.body);
     } else {
       return Left(response.body);

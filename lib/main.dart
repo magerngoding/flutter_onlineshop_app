@@ -18,8 +18,11 @@ import 'package:flutter_onlineshop_app/presentation/home/bloc/best_seller_produc
 import 'package:flutter_onlineshop_app/presentation/home/bloc/checkout/checkout_bloc.dart';
 import 'package:flutter_onlineshop_app/presentation/home/bloc/special_offer_product/special_offer_product_bloc.dart';
 import 'package:flutter_onlineshop_app/presentation/orders/bloc/cost/cost_bloc.dart';
+import 'package:flutter_onlineshop_app/presentation/orders/bloc/history_order/history_order_bloc.dart';
 import 'package:flutter_onlineshop_app/presentation/orders/bloc/order/order_bloc.dart';
+import 'package:flutter_onlineshop_app/presentation/orders/bloc/order_detail/order_detail_bloc.dart';
 import 'package:flutter_onlineshop_app/presentation/orders/bloc/status_order/status_order_bloc.dart';
+import 'package:flutter_onlineshop_app/presentation/orders/bloc/tracking/tracking_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'data/datasource/firebase_messaging_remote_datasource.dart';
@@ -121,6 +124,21 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => StatusOrderBloc(
             OrderRemoteDatasource(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => HistoryOrderBloc(
+            OrderRemoteDatasource(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => OrderDetailBloc(
+            OrderRemoteDatasource(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => TrackingBloc(
+            RajaOngkirRemoteDatasource(),
           ),
         ),
       ],

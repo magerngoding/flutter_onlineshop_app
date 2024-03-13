@@ -3,6 +3,7 @@ import 'package:flutter_onlineshop_app/data/models/responses/city_response_model
 import 'package:flutter_onlineshop_app/data/models/responses/cost_response_model.dart';
 import 'package:flutter_onlineshop_app/data/models/responses/province_response_model.dart';
 import 'package:flutter_onlineshop_app/data/models/responses/subdistrict_response_model.dart';
+import 'package:flutter_onlineshop_app/data/models/responses/trancking_respon_model.dart';
 import 'package:http/http.dart' as http;
 
 import '../../core/constants/variables.dart';
@@ -82,6 +83,28 @@ class RajaOngkirRemoteDatasource {
 
     if (response.statusCode == 200) {
       return right(CostResponseModel.fromJson(response.body));
+    } else {
+      return left('Erorr');
+    }
+  }
+
+  // tracking
+  Future<Either<String, TrackingResponModel>> getWaybill(
+      String courier, String waybill) async {
+    final url = Uri.parse('https://pro.rajaongkir.com/api/waybill');
+    final response = await http.post(
+      url,
+      headers: {
+        'key': Variables.rajaOngkirKey,
+      },
+      body: {
+        'waybill': waybill,
+        'courier': courier,
+      },
+    );
+
+    if (response.statusCode == 200) {
+      return right(TrackingResponModel.fromJson(response.body));
     } else {
       return left('Erorr');
     }

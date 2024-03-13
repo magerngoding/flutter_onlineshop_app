@@ -1,8 +1,9 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_onlineshop_app/data/datasource/auth_local_datasource.dart';
+import 'package:flutter_onlineshop_app/data/datasource/firebase_messaging_remote_datasource.dart';
 import 'package:flutter_onlineshop_app/presentation/auth/bloc/login/login_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -102,9 +103,10 @@ class _LoginPageState extends State<LoginPage> {
                   listener: (context, state) {
                     state.maybeWhen(
                       orElse: () {},
-                      loaded: (data) {
+                      loaded: (data) async {
                         AuthLocalDatasource()
                             .saveAuthData(data); // simpan data dilocal
+                        await FirebaseMessagingRemoteDatasource().initialize();
                         context.goNamed(RouteConstants.root,
                             pathParameters: PathParameters().toMap());
                       },
